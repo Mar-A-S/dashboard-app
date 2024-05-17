@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Box, Heading } from '@chakra-ui/react';
 import EmployeeForm from '../../components/EmployeeForm';
 import { Employee } from '../../types';
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const EditEmployee = () => {
   const [employee, setEmployee] = useState<Employee | null>(null);
@@ -11,14 +12,14 @@ const EditEmployee = () => {
 
   useEffect(() => {
     if (id) {
-      fetch(`/api/employees/${id}`)
+      fetch(`${backendUrl}/api/employees/${id}`)
         .then(response => response.json())
         .then(data => setEmployee(data));
     }
   }, [id]);
 
   const handleSubmit = (data: Employee) => {
-    fetch(`/api/employees/${id}`, {
+    fetch(`${backendUrl}/api/employees/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
