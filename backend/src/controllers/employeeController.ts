@@ -6,7 +6,7 @@ export const getAllEmployees = async (req: Request, res: Response) => {
   try {
     const employees = await Employee.find();
     res.json(employees);
-  } catch (err) {
+  } catch (err:any) {
     res.status(500).json({ message: err.message });
   }
 };
@@ -19,7 +19,7 @@ export const getEmployeeById = async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'Employee not found' });
     }
     res.json(employee);
-  } catch (err) {
+  } catch (err:any) {
     res.status(500).json({ message: err.message });
   }
 };
@@ -30,7 +30,7 @@ export const createEmployee = async (req: Request, res: Response) => {
   try {
     const newEmployee = await employee.save();
     res.status(201).json(newEmployee);
-  } catch (err) {
+  } catch (err:any) {
     res.status(400).json({ message: err.message });
   }
 };
@@ -43,7 +43,7 @@ export const updateEmployee = async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'Employee not found' });
     }
     res.json(employee);
-  } catch (err) {
+  } catch (err:any) {
     res.status(400).json({ message: err.message });
   }
 };
@@ -56,7 +56,7 @@ export const deleteEmployee = async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'Employee not found' });
     }
     res.json({ message: 'Employee deleted' });
-  } catch (err) {
+  } catch (err:any) {
     res.status(500).json({ message: err.message });
   }
 };
