@@ -1,13 +1,32 @@
 version: '3.8'
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - '5000:5000'
     environment:
       - MONGO_URI=mongodb://mongo:27017/employees
     depends_on:
       - mongo
+    volumes:
+      - ./backend/src:/usr/src/app/src
+      - /usr/src/app/node_modules
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/pages:/usr/src/app/pages
+      - ./frontend/components:/usr/src/app/components
+      - ./frontend/public:/usr/src/app/public
+      - /usr/src/app/node_modules
 
   mongo:
     image: mongo:latest
