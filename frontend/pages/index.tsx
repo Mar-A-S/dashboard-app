@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Box, Button, Heading, Input } from '@chakra-ui/react';
 import EmployeeTable from '../components/EmployeeTable';
 import { Employee } from '../types';
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const Home = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -10,7 +11,7 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch('/api/employees')
+    fetch(`${backendUrl}/api/employees`)
       .then(response => response.json())
       .then(data => setEmployees(data));
   }, []);
@@ -20,7 +21,7 @@ const Home = () => {
   };
 
   const handleDelete = (id: string) => {
-    fetch(`/api/employees/${id}`, { method: 'DELETE' })
+    fetch(`${backendUrl}/api/employees/${id}`, { method: 'DELETE' })
       .then(() => setEmployees(employees.filter(employee => employee._id !== id)));
   };
 
