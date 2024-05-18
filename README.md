@@ -1,10 +1,10 @@
 # Dashboard App
 
-This project is a simple administrative dashboard for managing a list of employees. It includes both backend and frontend services using the following technologies:
-- **Frontend**: React with Next.js, Chakra UI, TypeScript
-- **Backend**: Node.js with Express.js, MongoDB (Mongoose)
+Este projeto é um dashboard administrativo simples para gerenciar uma lista de funcionários. Inclui serviços de backend e frontend usando as seguintes tecnologias:
+- **Frontend**: React com Next.js, Chakra UI, TypeScript
+- **Backend**: Node.js com Express.js, MongoDB (Mongoose)
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 dashboard-app/
@@ -30,70 +30,70 @@ dashboard-app/
 └── README.md
 ```
 
-## Prerequisites
+## Pré-requisitos
 
 - Docker
 - Docker Compose
 - Git
 
-## Getting Started
+## Primeiros Passos
 
-### 1. Clone the Repository
+### 1. Clonar o Repositório
 
-Clone the main repository:
+Clone o repositório principal:
 
 ```sh
-git clone <url-of-main-repo>
+git clone <url-do-repositorio-principal>
 cd my-dashboard-app
 ```
 
-### 2. Set Up Environment Variables
+### 2. Configurar Variáveis de Ambiente
 
-Create a `.env` file in the `backend` directory with the following content:
+Crie um arquivo `.env` no diretório `backend` com o seguinte conteúdo:
 
 ```env
 MONGO_URI=mongodb://mongo:27017/employees
 ```
 
-### 3. Build and Run the Containers
+### 3. Construir e Executar os Contêineres
 
-Run the following command to build and start the containers:
+Execute o seguinte comando para construir e iniciar os contêineres:
 
 ```sh
 docker-compose up --build
 ```
 
-This will start the following services:
-- **backend**: Available at `http://localhost:5000`
-- **frontend**: Available at `http://localhost:3000`
-- **mongo**: MongoDB instance
+Isso iniciará os seguintes serviços:
+- **backend**: Disponível em `http://localhost:5000`
+- **frontend**: Disponível em `http://localhost:3000`
+- **mongo**: Instância do MongoDB
 
-### 4. Access the Application
+### 4. Acessar a Aplicação
 
-- Frontend: Open [http://localhost:3000](http://localhost:3000) in your browser to access the frontend.
-- Backend: You can test the backend API at [http://localhost:5000/api/employees](http://localhost:5000/api/employees).
+- Frontend: Abra [http://localhost:3000](http://localhost:3000) no seu navegador para acessar o frontend.
+- Backend: Você pode testar a API do backend em [http://localhost:5000/api/employees](http://localhost:5000/api/employees).
 
-## Useful Commands
+## Comandos Úteis
 
-### Stop the Containers
+### Parar os Contêineres
 
 ```sh
 docker-compose down
 ```
 
-### Rebuild the Containers
+### Reconstruir os Contêineres
 
 ```sh
 docker-compose up --build
 ```
 
-### View Logs
+### Ver Logs
 
 ```sh
 docker logs dashboard-app_backend_1
 docker logs dashboard-app_frontend_1
 ```
 
-## License
+## Licença
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
