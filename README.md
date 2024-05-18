@@ -44,7 +44,7 @@ Clone o repositório principal:
 
 ```sh
 git clone <url-do-repositorio-principal>
-cd my-dashboard-app
+cd dashboard-app
 ```
 
 ### 2. Configurar Variáveis de Ambiente
